@@ -24,6 +24,9 @@
     color: rgb(119, 119, 119);
     letter-spacing: 1px;
     font-size: 19px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .activeColor {
@@ -32,6 +35,9 @@
     text-decoration: none;
     letter-spacing: 1px;
     font-size: 19px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .user {

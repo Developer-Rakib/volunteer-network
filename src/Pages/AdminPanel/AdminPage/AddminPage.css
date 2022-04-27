@@ -12,6 +12,10 @@
     margin-top: 5px;
 }
 
+.admin-container nav ul li span {
+    margin-right: 7px;
+}
+
 .admin-item {
     width: 80%;
     margin: 50px auto;
