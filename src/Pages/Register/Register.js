@@ -12,7 +12,7 @@ const Register = () => {
     const [email, setEmail] = useState({ value: "", error: "" });
     const [pass, setPass] = useState({ value: "", error: "" });
     const [conPass, setConPass] = useState({ value: "", error: "" });
-    const [displyName, setDisplyName] = useContext(DisplyNameContext)
+    const [, setDisplyName] = useContext(DisplyNameContext)
 
     const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
     const [updateProfile, updating, UpError] = useUpdateProfile(auth);
@@ -115,7 +115,7 @@ const Register = () => {
         }
     }
 
-    if (loading) {
+    if (loading || updating) {
         return <Loading></Loading>
     }
     return (

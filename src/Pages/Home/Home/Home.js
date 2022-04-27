@@ -1,5 +1,5 @@
 import React from 'react';
-import Event from '../../Event/Event';
+import Event from '../Event/Event';
 
 const Home = () => {
     return (

@@ -8,7 +8,6 @@ import { GrClose } from 'react-icons/gr';
 import { signOut } from 'firebase/auth';
 import toast from 'react-hot-toast';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { DisplyNameContext } from '../../../App';
 
 
 const Header = () => {
@@ -18,13 +17,15 @@ const Header = () => {
     let navigat = useNavigate();
 
     // console.log(user);
-    const [displyName, setDisplyName] = useContext(DisplyNameContext)
     // console.log(user?.photoURL);
 
 
 
     const navBtnHndle = () => {
         setToggle(!toggle)
+    }
+    const handleAdminBtn = () => {
+        navigat('./admin')
     }
     const handleRegister = () => {
         navigat("/register")
@@ -49,10 +50,10 @@ const Header = () => {
                 <span onClick={navBtnHndle} className='sm:hidden absolute right-8 top-5'>{toggle ? <GrClose></GrClose> : <GoThreeBars></GoThreeBars>}</span>
                 <ul className={`flex flex-col sm:flex-row absolute left-0 justify-center sm:relative sm:opacity-100 sm:top-0 bg-white sm:bg-inherit w-full py-2 duration-500 ease-out ${toggle ? "top-12 opacity-100" : "top-[-250px] opacity-0"}`}>
                     <NavLink className={({ isActive }) => (isActive ? 'activeColor' : 'navLink')} to={"/"}>HOME</NavLink>
-                    <NavLink className={({ isActive }) => (isActive ? 'activeColor' : 'navLink')} to={"/blog"}>BLOGS</NavLink>
+                    <NavLink className={({ isActive }) => (isActive ? 'activeColor' : 'navLink')} to={"/savedEvent"}>Saved Event</NavLink>
                     <NavLink className={({ isActive }) => (isActive ? 'activeColor' : 'navLink')} to={"/about"}>ABOUT</NavLink>
 
-                    <button className='px-5 pb-1 pt-2 bg-black text-white rounded'>Admin</button>
+                    <button onClick={handleAdminBtn} className='px-5 pb-1 pt-2 bg-black text-white rounded'>Admin</button>
                     {user ?
                         <div className="user flex items-center">
                             <img src={user.photoURL ? user.photoURL : "https://www.pavilionweb.com/wp-content/uploads/2017/03/man-300x300.png"} alt="" />
