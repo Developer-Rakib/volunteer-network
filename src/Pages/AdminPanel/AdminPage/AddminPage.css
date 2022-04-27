@@ -1,0 +1,18 @@
+.admin-container {}
+
+.admin-container nav {
+    height: 100vh;
+}
+
+.admin-container nav ul {}
+
+.admin-container nav ul li {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.admin-item {
+    width: 80%;
+    margin: 50px auto;
+}

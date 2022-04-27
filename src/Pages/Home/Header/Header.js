@@ -1,7 +1,7 @@
 import { Link as button, NavLink, useNavigate } from 'react-router-dom';
 import "./Header.css";
 import logo from '../../../img/logos/Group 1329.png'
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import auth from '../../../firebase.init.js';
 import { GoThreeBars } from 'react-icons/go';
 import { GrClose } from 'react-icons/gr';
@@ -71,7 +71,6 @@ const Header = () => {
                         :
                         <button className='px-5 pb-1 pt-2 mx-2  bg-sky-600 text-white rounded' onClick={handleRegister}>Register</button>
 
-                        // <NavLink className={({ isActive }) => (isActive ? 'activeColor' : 'navLink')} to={"/register"}>Register</NavLink>
                     }
                 </ul>
 
