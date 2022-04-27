@@ -8,6 +8,7 @@ import { GrClose } from 'react-icons/gr';
 import { signOut } from 'firebase/auth';
 import toast from 'react-hot-toast';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { DisplyNameContext } from '../../../App';
 
 
 const Header = () => {
@@ -17,12 +18,16 @@ const Header = () => {
     let navigat = useNavigate();
 
     // console.log(user);
+    const [displyName, setDisplyName] = useContext(DisplyNameContext)
     // console.log(user?.photoURL);
 
 
 
     const navBtnHndle = () => {
         setToggle(!toggle)
+    }
+    const handleRegister = () => {
+        navigat("/register")
     }
     const handleLogout = () => {
         signOut(auth).then(() => {
@@ -46,16 +51,27 @@ const Header = () => {
                     <NavLink className={({ isActive }) => (isActive ? 'activeColor' : 'navLink')} to={"/"}>HOME</NavLink>
                     <NavLink className={({ isActive }) => (isActive ? 'activeColor' : 'navLink')} to={"/blog"}>BLOGS</NavLink>
                     <NavLink className={({ isActive }) => (isActive ? 'activeColor' : 'navLink')} to={"/about"}>ABOUT</NavLink>
-                    <button className='px-5 pb-1 pt-2 mr-2  bg-sky-600 text-white rounded'>Register</button>
+
                     <button className='px-5 pb-1 pt-2 bg-black text-white rounded'>Admin</button>
-                    {/* {user ?
+                    {user ?
                         <div className="user flex items-center">
                             <img src={user.photoURL ? user.photoURL : "https://www.pavilionweb.com/wp-content/uploads/2017/03/man-300x300.png"} alt="" />
-                            <p>{user?.displayName}</p>
+                            {user?.displayName ?
+                                <p>{
+                                    user?.displayName?.length < 10 ?
+                                        user?.displayName :
+                                        `${user?.displayName.slice(0, 10)}...`
+                                }</p>
+                                :
+                                ""
+                            }
                             <button onClick={handleLogout}>LogOut</button>
                         </div>
                         :
-                        <NavLink className={({ isActive }) => (isActive ? 'activeColor' : 'navLink')} to={"/register"}>Register</NavLink>} */}
+                        <button className='px-5 pb-1 pt-2 mx-2  bg-sky-600 text-white rounded' onClick={handleRegister}>Register</button>
+
+                        // <NavLink className={({ isActive }) => (isActive ? 'activeColor' : 'navLink')} to={"/register"}>Register</NavLink>
+                    }
                 </ul>
 
             </nav>

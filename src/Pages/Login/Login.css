@@ -89,7 +89,9 @@
     color: white;
 }
 
-.form p {}
+.form p {
+    font-size: 15px;
+}
 
 .form p a,
 .forgot {

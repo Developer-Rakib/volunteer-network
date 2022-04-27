@@ -54,7 +54,7 @@ const SocialLogin = () => {
             <div onClick={handleGoogleSignin} className='flex border cursor-pointer items-center  rounded-full text-left px-2 py-1'>
                 <FcGoogle className='text-2xl'></FcGoogle>
                 <div className='w-full text-center'>
-                    <button className='text-sm sm:text-lg'>  <span className="mx-1">Login with</span> </button>
+                    <button className='text-sm sm:text-base'>  <span className="mx-1">Login with</span> </button>
                 </div>
             </div>
 

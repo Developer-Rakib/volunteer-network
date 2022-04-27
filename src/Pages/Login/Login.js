@@ -6,6 +6,7 @@ import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import Loading from '../Loading/Loading';
 
 const Login = () => {
 
@@ -76,6 +77,9 @@ const Login = () => {
     const hndlePass = (event) => {
         setPass({ value: event.target.value, error: "" })
     }
+    if (loading) {
+        return <Loading></Loading>
+    }
 
     return (
         <div>
@@ -83,7 +87,7 @@ const Login = () => {
                 <div className="SignIn">
                     <div className="box">
                         <div className="form">
-                            <h1>Login Form</h1>
+                            <h1>Login</h1>
 
                             <form onSubmit={hadnleLogIn}>
                                 <div className='input-container'>
@@ -98,7 +102,7 @@ const Login = () => {
                                 </div>
                             </form>
                             <p>Forgot Password? <button className='forgot' onClick={handleForgetPass}>Click Here</button></p>
-                            <p>Dont have an account ? <Link to={"/signUp"}>Sign Up</Link></p>
+                            <p>Dont have an account ? <Link to={"/register"}>Sign Up</Link></p>
                         </div>
                         <SocialLogin></SocialLogin>
 
