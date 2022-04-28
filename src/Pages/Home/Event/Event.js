@@ -14,7 +14,7 @@ const Event = ({ event }) => {
         }
         // console.log(event);
         try {
-            const { data } = await axios.post("http://localhost:5000/SavedEvents", event)
+            const { data } = await axios.post("https://damp-crag-51052.herokuapp.com/SavedEvents", event)
             console.log(data);
             if (!data.success) {
                 toast.error(data.message)

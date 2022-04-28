@@ -7,13 +7,13 @@ const SavedEvents = () => {
     const [savedEvents, setSavedEvents] = useState([]);
     useEffect(() => {
         (async () => {
-            const { data } = await axios.get("http://localhost:5000/SavedEvents")
+            const { data } = await axios.get("https://damp-crag-51052.herokuapp.com/SavedEvents")
             setSavedEvents(data)
         })()
     }, [])
 
     const handleDelete = (id) => {
-        axios.delete(`http://localhost:5000/SavedEvents/${id}`)
+        axios.delete(`https://damp-crag-51052.herokuapp.com/SavedEvents/${id}`)
             .then(res => {
                 if (res.data.success) {
                     toast.success(res.data.message)

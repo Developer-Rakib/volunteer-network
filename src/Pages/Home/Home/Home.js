@@ -6,7 +6,7 @@ const Home = () => {
     const [events, setEvents] = useState([])
     useEffect(() => {
         (async () => {
-            const { data } = await axios.get("http://localhost:5000/events")
+            const { data } = await axios.get("https://damp-crag-51052.herokuapp.com/events")
             setEvents(data)
         })()
     }, [])
