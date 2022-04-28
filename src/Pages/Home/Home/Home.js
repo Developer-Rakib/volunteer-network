@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Event from '../Event/Event';
+import axios from 'axios';
 
 const Home = () => {
+    const [events, setEvents] = useState([])
+    useEffect(() => {
+        (async () => {
+            const { data } = await axios.get("http://localhost:5000/events")
+            setEvents(data)
+        })()
+    }, [])
+    // console.log(events);
     return (
         <div className='container mx-auto'>
             <h2 className="text-3xl font-semibold mb-3">I grow by helping people in need.</h2>
@@ -20,8 +29,13 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className='event-container flex justify-evenly venly mt-10'>
-                <Event></Event>
+            <div className='event-container flex justify-evenly flex-wrap mt-10'>
+                {
+                    events.map(event => <Event
+                        key={event._id}
+                        event={event}
+                    ></Event>)
+                }
             </div>
         </div>
     );

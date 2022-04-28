@@ -25,7 +25,7 @@ const Header = () => {
         setToggle(!toggle)
     }
     const handleAdminBtn = () => {
-        navigat('./admin')
+        navigat('./admin/volunteer')
     }
     const handleRegister = () => {
         navigat("/register")
