@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
-import { BsFolderPlus } from 'react-icons/bs'
+import { AiOutlinePlus } from 'react-icons/ai'
 import { FiUsers } from 'react-icons/fi'
 import './AddminPage.css'
 
@@ -14,7 +14,7 @@ const AdminPage = () => {
                             <NavLink className={({ isActive }) => (isActive ? 'activeColor' : 'navLink')} to={"/admin/volunteer"}> <span><FiUsers></FiUsers></span> Volunteer List</NavLink>
                         </li>
                         <li>
-                            <NavLink className={({ isActive }) => (isActive ? 'activeColor' : 'navLink')} to={"/admin/addEvent"}> <span><BsFolderPlus></BsFolderPlus></span> Add Event</NavLink>
+                            <NavLink className={({ isActive }) => (isActive ? 'activeColor' : 'navLink')} to={"/admin/addEvent"}> <span><AiOutlinePlus></AiOutlinePlus></span> Add Event</NavLink>
                         </li>
 
                     </ul>
